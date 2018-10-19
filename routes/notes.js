@@ -77,22 +77,21 @@ router.get('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   const id = req.params.id;
 
+  console.log('request body: ', req.body);
   /***** Never trust users - validate input *****/
   const updateObj = {};
   const updateableFields = ['title', 'content', 'folder_id'];
 
   let tag_ids;
-  req.body.tagIds ? tag_ids = req.body.tagIds : null;
-  console.log(tag_ids);
+  req.body.tags ? tag_ids = req.body.tags : null;
+  console.log('tag ids: ', tag_ids);
   const noteId = req.params.id;
-  console.log('88: ', noteId);
 
   updateableFields.forEach(field => {
     if (field in req.body) {
       updateObj[field] = req.body[field];
     }
   });
-  console.log(updateObj);
 
   /***** Never trust users - validate input *****/
   if (!updateObj.title) {
