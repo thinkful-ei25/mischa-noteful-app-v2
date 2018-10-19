@@ -18,11 +18,14 @@
 -- ('Sports'),('animals'),('news');
 
 -- INSERT INTO notes_tags (note_id, tag_id) VALUES ('6', '1001');
-SELECT title as notes_title, tags.name as tag_name, folders.name as folders_name FROM notes
-LEFT JOIN folders ON notes.folder_id = folders.id
-LEFT JOIN notes_tags ON notes.id = notes_tags.note_id
-LEFT JOIN tags ON notes_tags.tag_id = tags.id;
-
+-- SELECT title as notes_title, tags.name as tag_name, folders.name as folders_name FROM notes
+-- LEFT JOIN folders ON notes.folder_id = folders.id
+-- LEFT JOIN notes_tags ON notes.id = notes_tags.note_id
+-- LEFT JOIN tags ON notes_tags.tag_id = tags.id;
+-- SELECT * FROM notes LIMIT 2;
+SELECT * FROM notes_tags;
+-- INSERT INTO notes (title, folder_id, tag_id) VALUES
+-- ('new note!'),('Work'),('news');
 -- ALTER SEQUENCE folders_id_seq RESTART WITH 100;
 -- INSERT INTO folders (name) VALUES
 --   ('Archive'),
